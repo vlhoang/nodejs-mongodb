@@ -1,0 +1,27 @@
+version: '3'
+
+services:
+  nodejs:
+    image: demo-service
+    ports:
+      - "8000:3000"
+    networks:
+      - nodejs-mongo-netw
+    environment:
+      MONGODB_URI: mongodb://mongodb:27017/demo
+      PORT: 3000
+    depends_on:
+      - mongodb
+  mongodb:
+    image: mongo:latest
+    volumes:
+    - "mongodb:/data/db"
+    networks:
+      - nodejs-mongo-netw
+
+networks:
+  nodejs-mongo-netw:
+    driver: bridge
+
+volumes:
+  mongodb:

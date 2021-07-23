@@ -42,6 +42,8 @@ dist
 .git
 
 # Docker file
+*Dockerfile*
+*docker-compose*
 
 # Deploy folder and file
 deploy
