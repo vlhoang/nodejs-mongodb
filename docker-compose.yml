@@ -2,7 +2,7 @@ version: '3'
 
 services:
   nodejs:
-    image: demo-service
+    build: .
     ports:
       - "8000:3000"
     networks:
